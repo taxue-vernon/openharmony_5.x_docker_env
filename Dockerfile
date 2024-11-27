@@ -5,7 +5,7 @@ ENV TZ=Asia/Chongqing
 RUN  apt update -y \
 	&& sed -i "s@http://.*archive.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list \ 
 	&& apt install ca-certificates -y \
-        && apt update -y \
+    && apt update -y \
 	&& apt upgrade -y \
 	&& apt install dialog -y \
 	&& DEBIAN_FRONTEND="noninteractive" apt -y install tzdata \
@@ -49,20 +49,20 @@ RUN  apt update -y \
 	&& sed -i '$aexport PATH=/home/tools/ninja:$PATH' /root/.bashrc \
 	&& sed -i '$aexport PATH=/home/tools/node-v14.15.4-linux-x64/bin:$PATH' /root/.bashrc \
 	&& sed -i '$aexport PATH=/home/tools/gn:$PATH' /root/.bashrc \
-        && export PATH=/home/tools/hc-gen:$PATH \
-        && export PATH=/home/tools/gcc_riscv32/bin:$PATH \
-        && export PATH=/home/tools/ninja:$PATH \
-        && export PATH=/home/tools/node-v12.20.0-linux-x64/bin:$PATH \
-        && export PATH=/home/tools/gn:$PATH \
-        && export PATH=/root/.local/bin:$PATH \
+    && export PATH=/home/tools/hc-gen:$PATH \
+    && export PATH=/home/tools/gcc_riscv32/bin:$PATH \
+    && export PATH=/home/tools/ninja:$PATH \
+    && export PATH=/home/tools/node-v12.20.0-linux-x64/bin:$PATH \
+    && export PATH=/home/tools/gn:$PATH \
+    && export PATH=/root/.local/bin:$PATH \
 	&& cd /home/tools/qemu-5.2.0 \
-        && mkdir build \
-        && cd build \
-        && ../configure --target-list=arm-softmmu \
-        && make -j \
-        && make install \
-        && cd /home/taxue \
-        && rm -rf /home/tools/*.tar \
-        && rm -rf /home/tools/*.gz \
-        && rm -rf /home/tools/*.xz \
-        && rm -rf /home/tools/qemu-5.2.0 \
+    && mkdir build \
+    && cd build \
+    && ../configure --target-list=arm-softmmu \
+    && make -j \
+    && make install \
+    && cd /home/taxue \
+    && rm -rf /home/tools/*.tar \
+    && rm -rf /home/tools/*.gz \
+    && rm -rf /home/tools/*.xz \
+    && rm -rf /home/tools/qemu-5.2.0 \
